@@ -9,11 +9,8 @@
 <div class="container">
 
     <div class="row">
-  
-      <div class="col-md-4 mt-3" *ngFor="let pokemon of pokedex | sortByPokedex: ordre">
-        <app-pokemon [pokemon]="pokemon" (event)="receptionchoix($event)"></app-pokemon>
-  
-  
-      </div>
+
+        <app-pokemon [pokemon]="pokemon" (event)="receptionchoix($event)" class="col-md-4 mt-3" *ngFor="let pokemon of pokedex | sortByPokedex: ordre"></app-pokemon>
+
     </div>
-  </div>
+</div>

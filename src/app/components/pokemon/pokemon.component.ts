@@ -4,23 +4,20 @@ import { Pokemon } from 'src/app/models/pokemon';
 @Component({
   selector: 'app-pokemon',
   templateUrl: './pokemon.component.html',
-  styleUrls: ['./pokemon.component.css']
+  styleUrls: ['./pokemon.component.css'],
 })
 export class PokemonComponent implements OnInit {
-
   @Input()
-  pokemon?: Pokemon;
+  pokemon!: Pokemon;
 
   @Output()
   event = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  choisir() {
+    this.event.emit(this.pokemon.name);
   }
-
-choisir() {
-  this.event.emit(this.pokemon?.name);
-}
-
 }
