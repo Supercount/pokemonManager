@@ -1,1 +1,18 @@
-<p>pokemons works!</p>
+<h2>Les six premiers Pokémon :</h2>
+
+<h3>Dans l'ordre du pokédex :</h3>
+
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let pokemon of pokedex| sortByPokedex: 'ASC'" class="col-3 carte border-dark border">
+            <div class="header_card">
+                <img src="{{pokemon.image}}" alt="{{pokemon.name}}">
+                <h4>{{pokemon.name}}</h4>
+            </div>
+            <p>Catégorie : {{pokemon.category}}</p>
+            <p>Type : {{pokemon.type[0]}}<span *ngIf="pokemon.type.length > 1">/{{pokemon.type[1]}}</span></p>
+            <p>Taille : <span *ngIf="pokemon.taille != null">{{pokemon.taille | number : "1.0-2" }} m</span><span *ngIf="pokemon.taille == null">N/A</span></p>
+            <p>Poids : <span *ngIf="pokemon.poids != null">{{pokemon.poids | number : "1.0-2" }} kg</span><span *ngIf="pokemon.poids == null">N/A</span></p>
+        </div>
+    </div>
+</div>
