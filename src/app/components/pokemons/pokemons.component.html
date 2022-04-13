@@ -6,11 +6,11 @@
 
 <button (click)="switchOrder()" class="btn btn-primary">Inverser l'ordre</button>
 
+<button (click)="affiche()" class="btn btn-primary">Affiche le pokédex</button>
+
 <div class="container">
 
     <div class="row">
-
         <app-pokemon [pokemon]="pokemon" (event)="receptionchoix($event)" class="col-md-4 mt-3" *ngFor="let pokemon of pokedex | sortByPokedex: ordre"></app-pokemon>
-
     </div>
 </div>

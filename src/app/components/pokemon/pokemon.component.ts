@@ -11,7 +11,7 @@ export class PokemonComponent implements OnInit {
   pokemon!: Pokemon;
 
   @Output()
-  event = new EventEmitter();
+  event : EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
