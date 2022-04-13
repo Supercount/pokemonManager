@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Pokemon } from '../components/pokemons/pokemons.component';
+import { Pokemon } from '../models/pokemon';
 
 @Pipe({
   name: 'sortByPokedex',

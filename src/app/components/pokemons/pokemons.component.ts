@@ -1,32 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-
-export class Pokemon {
-  id: number;
-  name: string;
-  category: string;
-  type: string[];
-  taille : number;
-  poids : number;
-  image : string;
-  
-  constructor(id: number, name: string, category: string, type: string[], taille: number, poids: number, image: string) {
-    this.id = id;
-    this.name = name;
-    this.category = category;
-    this.type = type;
-    this.taille = taille;
-    this.poids = poids;
-    this.image = image;
-  }
-
-}
+import { Pokemon } from '../../models/pokemon';
 
 @Component({
   selector: 'app-pokemons',
   templateUrl: './pokemons.component.html',
   styleUrls: ['./pokemons.component.css']
 })
-export class PokemonsComponent implements OnInit {
+export class PokemonsComponent {
+
+  choix : string = 'Pas de choix pour le moment';
+
+  ordre : string = 'ASC';
 
   pokedex : Pokemon[] = [
     {
@@ -58,7 +42,7 @@ export class PokemonsComponent implements OnInit {
     },
     {
       id: 2,
-      name: "Florizarre",
+      name: "Herbizarre",
       category: "Graine",
       type: ["Plante", "Poison"],
       taille: 1,
@@ -85,9 +69,11 @@ export class PokemonsComponent implements OnInit {
     }
   ];
 
-  constructor() { }
-
-  ngOnInit(): void {
+  switchOrder() {
+      this.ordre = this.ordre === 'ASC' ? 'DESC' : 'ASC';
   }
 
+  receptionchoix(choix : string) {
+    this.choix = choix;
+  }
 }
