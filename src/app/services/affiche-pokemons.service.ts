@@ -128,4 +128,8 @@ export class AffichePokemonsService {
 
     // return this.pokedex;
   }
+
+  create(data: any): Observable<any> {
+    return this.httpClient.post(`${this.BASE_URL}/pokemons`, data);
+  }
 }

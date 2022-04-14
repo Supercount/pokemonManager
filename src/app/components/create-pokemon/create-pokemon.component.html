@@ -1,36 +1,36 @@
 
-<form class="container-fluid">
+<div class="container-fluid">
     <div class="mb-3">
         <label for="pokedex" class="form-label">Numéro du Pokédex : </label>
-        <input type="number" id="pokedex"/>
+        <input type="number" id="pokedex" [(ngModel)]="pokemon.pokedex"/>
     </div>
     <div class="mb-3">
         <label for="name" class="form-label">Nom du Pokémon : </label>
-        <input type="text" id="name"/>
+        <input type="text" id="name" [(ngModel)]="pokemon.name"/>
     </div>
     <div class="mb-3">
         <label for="category" class="form-label">Catégorie du Pokémon : </label>
-        <input type="text" id="category"/>
+        <input type="text" id="category" [(ngModel)]="pokemon.category"/>
     </div>
     <div class="mb-3">
         <label for="type1" class="form-label">Premier type du Pokémon : </label>
-        <input type="text" id="type1"/>
+        <input type="text" id="type1" [(ngModel)]="pokemon.types[0]"/>
     </div>
     <div class="mb-3">
         <label for="type2" class="form-label">Second type du Pokémon : </label>
-        <input type="text" id="type2"/>
+        <input type="text" id="type2" [(ngModel)]="pokemon.types[1]"/>
     </div>
     <div class="mb-3">
         <label for="height" class="form-label">Taille du Pokémon : </label>
-        <input type="text" id="height"/>
+        <input type="text" id="height" [(ngModel)]="pokemon.height"/>
     </div>
     <div class="mb-3">
         <label for="weight" class="form-label">Poids du Pokémon : </label>
-        <input type="text" id="weight"/>
+        <input type="text" id="weight" [(ngModel)]="pokemon.weight"/>
     </div>
     <div class="mb-3">
         <label for="image" class="form-label">Image du Pokémon : </label>
-        <input type="text" id="image"/>
+        <input type="text" id="image" [(ngModel)]="pokemon.image"/>
     </div>
-    <button type="submit" class="btn btn-primary">Ajouter</button>
-  </form>
+    <button class="btn btn-success" (click)="savePokemon()">Ajouter</button>
+</div>
