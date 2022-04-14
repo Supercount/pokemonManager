@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Pokemon } from '../models/pokemon';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { PokemonType } from '../models/pokemon-type';
 
 @Injectable({
   providedIn: 'root'
@@ -132,4 +133,9 @@ export class AffichePokemonsService {
   create(data: any): Observable<any> {
     return this.httpClient.post(`${this.BASE_URL}/pokemons`, data);
   }
+
+  getTypes(): Observable<PokemonType[]> {
+    return this.httpClient.get<PokemonType[]>(`${this.BASE_URL}/types`);
+  }
+
 }

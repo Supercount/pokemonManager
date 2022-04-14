@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Pokemon } from 'src/app/models/pokemon';
+import { PokemonType } from 'src/app/models/pokemon-type';
 import { AffichePokemonsService } from 'src/app/services/affiche-pokemons.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class CreatePokemonComponent implements OnInit {
 
   registerForm!: FormGroup;
 
+  typeList : PokemonType[] = [];
+
   pokemon: Pokemon= {
     id: 0,
     pokedex: 0,
@@ -22,7 +25,7 @@ export class CreatePokemonComponent implements OnInit {
     weight: 0,
     image: ''
   };
-  submitted = false;
+  submitted = true;
 
   constructor(private service : AffichePokemonsService, private formBuilder : FormBuilder) { }
 
@@ -37,9 +40,22 @@ export class CreatePokemonComponent implements OnInit {
       weight : [this.pokemon.weight],
       image : [this.pokemon.image] 
     });
+    
+    this.service.getTypes().subscribe({
+      next: types => {
+        this.typeList = types;
+      }, error: err => {
+        console.log(err);
+      }, complete: () => {
+        console.log('fin de chargement');
+      }
+    });
   }
 
   savePokemon(): void {
+    if (this.pokemon.types[1] == this.pokemon.types[0]) {
+      this.pokemon.types.pop();
+    }
     const data = {
       id : this.pokemon.id,
       pokedex : this.pokemon.pokedex,
@@ -58,6 +74,10 @@ export class CreatePokemonComponent implements OnInit {
         },
         error: (e) => console.error(e)
       });
+  }
+
+  close(): void {
+    this.submitted = true;
   }
   
   newPokemon(): void {

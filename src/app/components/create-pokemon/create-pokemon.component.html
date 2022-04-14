@@ -1,5 +1,7 @@
 
 <div class="container-fluid">
+    
+    <div *ngIf="!submitted">
     <div class="mb-3">
         <label for="pokedex" class="form-label">Numéro du Pokédex : </label>
         <input type="number" id="pokedex" [(ngModel)]="pokemon.pokedex"/>
@@ -13,13 +15,30 @@
         <input type="text" id="category" [(ngModel)]="pokemon.category"/>
     </div>
     <div class="mb-3">
+        <label for="type" class="form-label">Premier type du Pokémon : </label>
+        <select  id="type" [(ngModel)]="pokemon.types[0]">
+            <option *ngFor="let type of typeList" [value]="type.id">{{type.name}}</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="type" class="form-label">Second type du Pokémon : </label>
+        <select  id="type" [(ngModel)]="pokemon.types[1]">
+            <option *ngFor="let type of typeList" [value]="type.id">{{type.name}}</option>
+        </select>
+    </div>
+<!-- 
+    <div class="mb-3">
         <label for="type1" class="form-label">Premier type du Pokémon : </label>
         <input type="text" id="type1" [(ngModel)]="pokemon.types[0]"/>
     </div>
     <div class="mb-3">
         <label for="type2" class="form-label">Second type du Pokémon : </label>
         <input type="text" id="type2" [(ngModel)]="pokemon.types[1]"/>
-    </div>
+    </div> -->
+
+
+
     <div class="mb-3">
         <label for="height" class="form-label">Taille du Pokémon : </label>
         <input type="text" id="height" [(ngModel)]="pokemon.height"/>
@@ -33,4 +52,10 @@
         <input type="text" id="image" [(ngModel)]="pokemon.image"/>
     </div>
     <button class="btn btn-success" (click)="savePokemon()">Ajouter</button>
+    <button class="btn btn-error" (click)="close()">Annuler</button>
+    </div>
+    <div *ngIf="submitted">
+        <p>Formulaire d'ajout </p>
+        <button class="btn btn-success" (click)="newPokemon()">Ouvrir</button>
+    </div>
 </div>
