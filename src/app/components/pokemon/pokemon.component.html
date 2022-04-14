@@ -2,21 +2,23 @@
     <img [src]="pokemon.image" class="card-img-top w-50 align-self-center" [alt]="pokemon.name">
     <div class="card-body">
         <h5 class="card-title">{{pokemon.name}}</h5>
-        <p class="card-text">{{pokemon.id | number: '3.0-0'}}</p>
+        <p class="card-text">#{{pokemon.pokedex | number: '3.0-0'}}</p>
     </div>
 
     <ul class="list-group list-group-flush">
         <li class="list-group-item">
-            Catégorie : <span *ngIf="pokemon.category;else na">{{pokemon.category}}</span>
+            Catégorie : <span >{{pokemon.category}}</span>
         </li>
         <li class="list-group-item">
-            Type : <span *ngIf="pokemon.type;else na">{{pokemon.type.join(" / ")}}</span>
+            Type : <span *ngFor="let type of pokemon.types;let i=index">
+                {{type.name}} {{i === pokemon.types.length - 1 ? '' : ' / '}}
+            </span>
         </li>
         <li class="list-group-item">
-            Taille : <span *ngIf="pokemon.taille;else na">{{pokemon.taille | number : '1.0-2'}} m</span>
+            Taille : <span *ngIf="pokemon.height;else na">{{pokemon.height | number : '1.0-2'}} m</span>
         </li>
         <li class="list-group-item">
-            Poids : <span *ngIf="pokemon.poids;else na">{{pokemon.poids | number : '1.0-2'}} kg</span>
+            Poids : <span *ngIf="pokemon.weight;else na">{{pokemon.weight | number : '1.0-2'}} kg</span>
         </li>
         <li class="list-group-item">
             <button (click)="choisir()" class="btn btn-primary">Choisir ce pokémon</button>

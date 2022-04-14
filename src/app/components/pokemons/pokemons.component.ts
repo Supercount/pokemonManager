@@ -7,7 +7,7 @@ import { Pokemon } from '../../models/pokemon';
   templateUrl: './pokemons.component.html',
   styleUrls: ['./pokemons.component.css']
 })
-export class PokemonsComponent {
+export class PokemonsComponent implements OnInit{
 
   choix : string = 'Pas de choix pour le moment';
 
@@ -26,8 +26,20 @@ export class PokemonsComponent {
     this.choix = choix;
   }
 
-  affiche() {
-    this.pokedex = this.affichePokemon.getPokedex();
+  ngOnInit(): void {
+    this.affichePokemon.getPokedex().subscribe({
+      next: pokemons => {
+        this.pokedex = pokemons;
+      }, error: err => {
+        console.log(err);
+      }, complete: () => {
+        console.log('fin de chargement');
+      }
+    });
   }
+
+  /* affiche() {
+    this.pokedex = this.affichePokemon.getPokedex();
+  } */
 
 }
