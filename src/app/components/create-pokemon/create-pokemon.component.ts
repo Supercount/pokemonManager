@@ -13,7 +13,7 @@ export class CreatePokemonComponent implements OnInit {
 
   registerForm!: FormGroup;
 
-  typeList : PokemonType[] = [];
+  typeList : String[] = [];
 
   pokemon: Pokemon= {
     id: 0,
@@ -25,7 +25,7 @@ export class CreatePokemonComponent implements OnInit {
     weight: 0,
     image: ''
   };
-  submitted = true;
+  submitted = false;
 
   constructor(private service : AffichePokemonsService, private formBuilder : FormBuilder) { }
 

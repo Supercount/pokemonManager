@@ -17,14 +17,14 @@
     <div class="mb-3">
         <label for="type" class="form-label">Premier type du Pokémon : </label>
         <select  id="type" [(ngModel)]="pokemon.types[0]">
-            <option *ngFor="let type of typeList" [value]="type.id">{{type.name}}</option>
+            <option *ngFor="let type of typeList" [value]="type">{{type}}</option>
         </select>
     </div>
 
     <div class="mb-3">
         <label for="type" class="form-label">Second type du Pokémon : </label>
         <select  id="type" [(ngModel)]="pokemon.types[1]">
-            <option *ngFor="let type of typeList" [value]="type.id">{{type.name}}</option>
+            <option *ngFor="let type of typeList" [value]="type">{{type}}</option>
         </select>
     </div>
 <!-- 

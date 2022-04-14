@@ -1,42 +1,8 @@
-<!-- <h1>{{title}}</h1> -->
+<div class="row">
+  <a href="#" [routerLink]="'/'" class="btn btn-primary">Pokémons</a>
+  <a href="#" [routerLink]="'/generations'" class="btn btn-primary">Générations</a>
+  <a href="#" [routerLink]="'/create-pokemon'" class="btn btn-primary">Ajouter un Pokémon</a>
+</div>
 
-<app-pokemons></app-pokemons>
-<!-- 
-<p>Il y a {{fruits.length}} fruits dans le panier</p>
-
-<h2>Liste des fruits :</h2>
-
-<ul *ngFor="let fruit of fruits">
-  <li>{{fruit.name}} - {{fruit.price}} €</li>
-</ul>
-
-<h2>Fruits les moins cher :</h2>
-
-<ul *ngFor="let fruit of fruits">
-  <li *ngIf="fruit.price < 1">{{fruit.name}} - {{fruit.price}} €</li>
-</ul>
-
-<h2>Origines :</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nom</th>
-      <th>Prix</th>
-      <th colspan="2">Origine</th>
-    </tr>
-  </thead>
-  <tbody *ngFor="let fruit of fruits" [ngSwitch]="fruit.origin">
-    <tr>
-      <td>{{fruit.name}}</td>
-      <td>{{fruit.price}} €</td>
-      <td>{{fruit.origin}}</td>
-      <td *ngSwitchCase="'FRANCE'"><img src="https://img.icons8.com/color/344/france-circular.png" alt=""></td>
-      <td *ngSwitchCase="'BELGIUM'"><img src="https://img.icons8.com/color/344/belgium-circular.png" alt=""></td>
-      <td *ngSwitchCase="'SPAIN'"><img src="https://img.icons8.com/color/344/spain-circular.png" alt=""></td>
-      <td *ngSwitchDefault>N/A</td>
-    </tr>
-  </tbody>
-</table> -->
 
 <router-outlet></router-outlet>
