@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AuthInterceptor } from './helper/auth.interceptor';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
 
 registerLocaleData(localeFR);
 
@@ -31,7 +32,8 @@ registerLocaleData(localeFR);
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
