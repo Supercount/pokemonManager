@@ -12,6 +12,11 @@ import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CreatePokemonComponent } from './components/create-pokemon/create-pokemon.component';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { AuthInterceptor } from './helper/auth.interceptor';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 registerLocaleData(localeFR);
 
@@ -22,7 +27,11 @@ registerLocaleData(localeFR);
     PokemonsComponent,
     PokedexPipe,
     PokemonComponent,
-    CreatePokemonComponent
+    CreatePokemonComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +40,7 @@ registerLocaleData(localeFR);
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
+  providers: [{provide: LOCALE_ID, useValue: 'fr-FR'},AuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
